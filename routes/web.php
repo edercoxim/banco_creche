@@ -16,4 +16,10 @@ Route::get("/", function (){
 Route::get("/login", function (){
     return view("login");
 });
+Route::get('/creches','CrecheController@listaCreche');
 
+Route::get('creches/create','CrecheController@create');
+Route::post('creches/store','CrecheController@store');
+Route::get('creches/{id}/destroy','CrecheController@destroy');
+Route::get('creches/{id}/edit','CrecheController@edit');
+Route::put('creches/{id}/update','CrecheController@update');

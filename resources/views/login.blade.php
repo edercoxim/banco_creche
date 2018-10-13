@@ -5,7 +5,7 @@
     <div class="container center"  >
 
         <div class="row">
-<div class="col-md-12">
+
                 <h2>Login</h2>
 
                 <form method="post" action="{{ url('/auth/login') }}">
@@ -48,6 +48,6 @@
 
                 </form>
 </div>
-        </div>
+
     </div>
 @endsection
