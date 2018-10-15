@@ -12,7 +12,7 @@
             </ul>
         @endif
 
-        {!! Form::open(['url'=>"creches/$creche->id/update", 'method'=>'put'])!!}
+        {!! Form::open(['route'=>['creches.update',$creche->id], 'method'=>'put'])!!}
 
         <!-- Nome Form Input -->
         <div class="form-group">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Salvar Creche', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Salvar Nova', ['class'=>'btn btn-primary']) !!}
         </div>
 
         {!! Form::close() !!}

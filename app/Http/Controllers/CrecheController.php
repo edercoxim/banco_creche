@@ -12,10 +12,14 @@ class CrecheController extends Controller
     /**
      * @return $this
      */
-    public function listaCreche()
+    public function index()
     {
-        $crechii=DB::select('select * from bd_creche.creches');
+        $creches = Creche::all();
+        return view('creches.listagem',['creches'=>$creches]);
+
+       /** $crechii=DB::select('select * from bd_creche.creches');
         return view('creches.listagem')->with('crechii', $crechii);
+        */
     }
 
     public function create(){
@@ -25,12 +29,12 @@ class CrecheController extends Controller
     public function store(CrecheRequest $request){
         $input = $request->all();
         Creche::create($input);
-        return redirect('creches');
+        return redirect()->route('creches');
     }
 
     public function destroy($id){
         Creche::find($id)->delete();
-        return redirect('creches');
+        return redirect()->route('creches');
     }
 
     public function edit($id){
@@ -40,6 +44,6 @@ class CrecheController extends Controller
 
     public function update(CrecheRequest $request, $id){
         $creche = Creche::find($id)->update($request->all());
-        return redirect('creches');
+        return redirect()->route('creches');
     }
 }

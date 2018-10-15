@@ -16,10 +16,13 @@ Route::get("/", function (){
 Route::get("/login", function (){
     return view("login");
 });
-Route::get('/creches','CrecheController@listaCreche');
 
-Route::get('creches/create','CrecheController@create');
-Route::post('creches/store','CrecheController@store');
-Route::get('creches/{id}/destroy','CrecheController@destroy');
-Route::get('creches/{id}/edit','CrecheController@edit');
-Route::put('creches/{id}/update','CrecheController@update');
+Route::group(['prefix'=>'creches', 'where'=>['id'=>'[0-9]+']], function (){
+
+Route::get('',['as'=>'creches','uses'=>'CrecheController@index']);
+Route::get('create',['as'=>'creches.create','uses'=>'CrecheController@create']);
+Route::post('store',['as'=>'creches.store','uses'=>'CrecheController@store']);
+Route::get('{id}/destroy',['as'=>'creches.destroy','uses'=>'CrecheController@destroy']);
+Route::get('{id}/edit',['as'=>'creches.edit','uses'=>'CrecheController@edit']);
+Route::put('{id}/update',['as'=>'creches.update','uses'=>'CrecheController@update']);
+});
