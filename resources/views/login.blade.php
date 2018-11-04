@@ -1,12 +1,11 @@
-@extends('principal')
+@extends('layouts.app')
 
 @section('content')
 
-    <div class="container center"  >
+    <div class="container-fluid">
+        <h2 class="text-body">Entrar</h2>
 
-        <div class="row">
-
-                <h2>Login</h2>
+        <div class="flex-row">
 
                 <form method="post" action="{{ url('/auth/login') }}">
                     {!! csrf_field() !!}

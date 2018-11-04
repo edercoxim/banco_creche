@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Creche extends Model
 {
     protected $fillable = ['nome','endereco','bairro','diretor'];
+
+
+public function user()
+{
+
+    return $this->hasMany(User::class);
+}
 }

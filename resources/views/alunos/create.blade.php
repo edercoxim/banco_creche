@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Novo Usuario</h1>
+        <h1>Novo Aluno</h1>
 
         @if ($errors->any())
             <ul class="alert alert-warning">
@@ -12,7 +12,7 @@
             </ul>
         @endif
 
-        {!! Form::open(['route'=>'usuarios.store']) !!}
+        {!! Form::open(['route'=>'alunos.store']) !!}
 
     <!-- Nome Form Input -->
         <div class="form-group">
@@ -20,33 +20,33 @@
             {!! Form::text('nome', null, ['class'=>'form-control']) !!}
         </div>
 
-        <!-- Cpf Form Input -->
+        <!-- Data Nascimento Form Input -->
         <div class="form-group">
-            {!! Form::label('cpf', 'Cpf:') !!}
-            {!! Form::text('cpf', null, ['class'=>'form-control']) !!}
+            {!! Form::label('dataNasc', 'DataNasc:') !!}
+            {!! Form::date('dataNasc', null, ['class'=>'form-control']) !!}
         </div>
 
-        <!-- endereco Form Input -->
+        <!-- mae Form Input -->
         <div class="form-group">
-            {!! Form::label('endereco', 'Endereco:') !!}
-            {!! Form::text('endereco', null, ['class'=>'form-control']) !!}
+            {!! Form::label('mae', 'Mae:') !!}
+            {!! Form::text('mae', null, ['class'=>'form-control']) !!}
         </div>
 
-        <!-- Telefone Form Input -->
+        <!-- Pai Form Input -->
         <div class="form-group">
-            {!! Form::label('telefone', 'Telefone:') !!}
-            {!! Form::text('telefone', null, ['class'=>'form-control']) !!}
+            {!! Form::label('pai', 'Pai:') !!}
+            {!! Form::text('pai', null, ['class'=>'form-control']) !!}
         </div>
 
-        <!-- Tipo Usuario Form Input -->
+        <!-- Tel Responsavel Form Input -->
         <div class="form-group">
-            {!! Form::label('tipoUsuario', 'TipoUsuario:') !!}
-            {!! Form::text('tipoUsuario', null, ['class'=>'form-control']) !!}
+            {!! Form::label('telResponsavel', 'TelResponsavel:') !!}
+            {!! Form::text('telResponsavel', null, ['class'=>'form-control']) !!}
         </div>
 
 
         <div class="form-group">
-            {!! Form::submit('Criar Usuario', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Criar Aluno', ['class'=>'btn btn-primary']) !!}
         </div>
 
         {!! Form::close() !!}

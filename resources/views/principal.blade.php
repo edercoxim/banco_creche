@@ -28,8 +28,6 @@
                 align-content: center;
                 background: #f7f7f7;
             }
-
-
         </style>
     </head>
     <body>
@@ -43,7 +41,9 @@
                 </div>
 
             <main class= "container">
+
                 @yield('content')
+
             </main>
 
             </body>

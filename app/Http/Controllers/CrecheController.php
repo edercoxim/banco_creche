@@ -7,19 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use creche\Creche;
 
+
 class CrecheController extends Controller
 {
     /**
      * @return $this
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $creches = Creche::all();
         return view('creches.listagem',['creches'=>$creches]);
 
-       /** $crechii=DB::select('select * from bd_creche.creches');
-        return view('creches.listagem')->with('crechii', $crechii);
-        */
+
     }
 
     public function create(){

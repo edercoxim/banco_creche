@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Novo Usuario</h1>
+        <h1>Nova Sala</h1>
 
         @if ($errors->any())
             <ul class="alert alert-warning">
@@ -12,41 +12,27 @@
             </ul>
         @endif
 
-        {!! Form::open(['route'=>'usuarios.store']) !!}
+        {!! Form::open(['route'=>'salas.store']) !!}
 
-    <!-- Nome Form Input -->
+    <!-- Ano Form Input -->
         <div class="form-group">
-            {!! Form::label('nome', 'Nome:') !!}
-            {!! Form::text('nome', null, ['class'=>'form-control']) !!}
+            {!! Form::label('ano', 'Ano:') !!}
+            {!! Form::text('ano', null, ['class'=>'form-control']) !!}
         </div>
 
-        <!-- Cpf Form Input -->
+    <!-- Usuario Form Input -->
         <div class="form-group">
-            {!! Form::label('cpf', 'Cpf:') !!}
-            {!! Form::text('cpf', null, ['class'=>'form-control']) !!}
+            <label for="">id do Usuario</label>
+            <select name="user_id" id="inputuser_id" class="form-control">
+                @foreach($users as $us)
+                    <option value="{{$us['id']}}">{{$us['nome']}}</option>
+                @endforeach
+
+            </select>
         </div>
 
-        <!-- endereco Form Input -->
         <div class="form-group">
-            {!! Form::label('endereco', 'Endereco:') !!}
-            {!! Form::text('endereco', null, ['class'=>'form-control']) !!}
-        </div>
-
-        <!-- Telefone Form Input -->
-        <div class="form-group">
-            {!! Form::label('telefone', 'Telefone:') !!}
-            {!! Form::text('telefone', null, ['class'=>'form-control']) !!}
-        </div>
-
-        <!-- Tipo Usuario Form Input -->
-        <div class="form-group">
-            {!! Form::label('tipoUsuario', 'TipoUsuario:') !!}
-            {!! Form::text('tipoUsuario', null, ['class'=>'form-control']) !!}
-        </div>
-
-
-        <div class="form-group">
-            {!! Form::submit('Criar Usuario', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Criar Sala', ['class'=>'btn btn-primary']) !!}
         </div>
 
         {!! Form::close() !!}
