@@ -4,9 +4,9 @@ namespace creche\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UsuarioRequest extends FormRequest
+class SalaRequest extends FormRequest
 {
-    /**Aa
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -24,11 +24,7 @@ class UsuarioRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|min:5',
-            'cpf' => 'required|min:5',
-            'endereco' => 'required|min:5',
-            'telefone' => 'required|min:5',
-            'tipoUsuario' => 'required|min:1',
+            'ano' => 'required|min:4'
         ];
     }
 }

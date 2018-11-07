@@ -3,10 +3,11 @@
 namespace creche\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use creche\MatriculaRequest;
 
-class UsuarioRequest extends FormRequest
+class AlunoRequest extends FormRequest
 {
-    /**Aa
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -25,10 +26,11 @@ class UsuarioRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:5',
-            'cpf' => 'required|min:5',
-            'endereco' => 'required|min:5',
-            'telefone' => 'required|min:5',
-            'tipoUsuario' => 'required|min:1',
+            'dataNasc' => 'required|min:6',
+            'mae' => 'required|min:5',
+            'pai' => 'required|min:5',
+            'telResponsavel' => 'required|min:5',
+//            'matricula_id' =>''
         ];
     }
 }

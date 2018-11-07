@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
-        <h1>Novo Usuario</h1>
+        <h1>Nova Matricula</h1>
+
+        {!! Form::open(['route'=>'matriculas.store']) !!}
 
         @if ($errors->any())
             <ul class="alert alert-warning">
@@ -12,45 +15,33 @@
             </ul>
         @endif
 
-        {!! Form::open(['route'=>'usuarios.store']) !!}
-
-    <!-- Nome Form Input -->
         <div class="form-group">
-            {!! Form::label('nome', 'Nome:') !!}
-            {!! Form::text('nome', null, ['class'=>'form-control']) !!}
+            <label for="">Data Matricula</label>
+            <input type="date" class="form-control" name="dataMatric" placeholder="Escreva o titulo"
+            value="{{ old('') }}">
         </div>
 
-        <!-- Cpf Form Input -->
-        <div class="form-group">
-            {!! Form::label('cpf', 'Cpf:') !!}
-            {!! Form::text('cpf', null, ['class'=>'form-control']) !!}
-        </div>
 
-        <!-- endereco Form Input -->
+        <!-- Matricular com id do Aluno  -->
         <div class="form-group">
-            {!! Form::label('endereco', 'Endereco:') !!}
-            {!! Form::text('endereco', null, ['class'=>'form-control']) !!}
-        </div>
-
-        <!-- Telefone Form Input -->
-        <div class="form-group">
-            {!! Form::label('telefone', 'Telefone:') !!}
-            {!! Form::text('telefone', null, ['class'=>'form-control']) !!}
-        </div>
-
-        <!-- Tipo Usuario Form Input -->
-        <div class="form-group">
-            {!! Form::label('tipoUsuario', 'TipoUsuario:') !!}
-            {!! Form::text('tipoUsuario', null, ['class'=>'form-control']) !!}
+            {!! Form::label('id', 'Id Aluno:') !!}
+            {{--{!! Form::integer('id', $al['id'], ['class'=>'form-control']) !!}--}}
+            <input type="text" class="form-control" name="aluno_id" value="{{$id}}">
         </div>
 
 
         <div class="form-group">
-            {!! Form::submit('Criar Usuario', ['class'=>'btn btn-primary']) !!}
+            <label for="">id da Sala</label>
+            <select name="sala_id" id="inputSala_id" class="form-control">
+                @foreach($salas as $sl)
+                    <option value="{{$sl['id']}}">{{$sl['ano']}}</option>
+                @endforeach
+
+            </select>
         </div>
 
+        <button type="submit" class="btn btn-primary">Salvar</button>
         {!! Form::close() !!}
-
 
 
     </div>

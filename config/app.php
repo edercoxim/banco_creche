@@ -159,6 +159,7 @@ return [
         creche\Providers\EventServiceProvider::class,
         creche\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        \Artesaos\Defender\Providers\DefenderServiceProvider::class,
 
     ],
 
