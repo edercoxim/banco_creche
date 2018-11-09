@@ -57,12 +57,13 @@ Route::group(['prefix'=>'alunos', 'where'=>['id'=>'[0-9]+']], function (){
     Route::get('{id}/edit',['as'=>'alunos.edit','uses'=>'AlunoController@edit']);
     Route::put('{id}/update',['as'=>'alunos.update','uses'=>'AlunoController@update']);
 
-    Route::get('busca-nome',['as'=>'alunos.busca','uses'=>'AlunoController@busca']);
-    Route::get('busca-nome/{?nome}', 'AlunoController@busca')-> name ('busca-nome');
-//    Route::get ('buscar-nome/{?nome}', 'SeuController@seumetodo')-> name ('buscar-nome');
+
+  //  Route::get('busca-nome',['as'=>'busca-nome','uses'=>'AlunoController@busca']);
+   Route::get('busca-nome/{nome?}', 'AlunoController@busca')-> name ('busca-nome');
+
 });
 
-    Route::get('busca-nome/{?nome}', 'AlunoController@busca')-> name ('busca-nome');
+
 
 
 

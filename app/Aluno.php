@@ -18,8 +18,7 @@ class Aluno extends Model
     public function matricula()
     {
 
-
-        return $this->hasMany('creche\Matricula');
+        return $this->hasMany(Matricula::class);
     }
 }
 

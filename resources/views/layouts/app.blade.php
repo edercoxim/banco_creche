@@ -97,25 +97,23 @@
                             </div>
 
                         </li>
+                        <!-- procurar Aluno -->
+                        <li>
+                            <ul class="navbar-nav mr-auto">
 
-                        <!-- Matricular com id do Aluno  -->
+                            <div class="form-group">
+                                <form action="{{route('busca-nome')}}" method="get">
+                                    <div >
+                                        <input type="text" name="nome" value="{{ old('nome') }}">
+                                        <button class="btn btn-default btn-sm" type="submit"> Ok </button>
+                                    </div>
 
-                        <div class="row">
-                            <form action="{route ('alunos.busca-nome')}" method="get">
-                                <div class="col-sm-8 input-group">
+                                </form>
+                            </div>
+                            </ul>
+                        </li>
 
-                                <input type="text" class="form-control" name="nome"   placeholder="Buscar...">
-
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">Ok</button>
-                                </span>
-                                </div>
-                            </form>
-                        </div>
-
-                @endif
-
-
+                    @endif
 
                 <!-- Left Side Of Navbar -->
 
@@ -128,6 +126,7 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     </ul>
+
                 </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -165,7 +164,7 @@
                             </li>
                         @endguest
                     </ul>
-                    {{--</ul>--}}
+
             </div>
        </nav>
 

@@ -15,7 +15,9 @@ class SalaController extends Controller
 
     public function index()
     {
+
         $salas = Sala::all();
+        //dd($salas->toArray());
         $usuarios = Usuario::all();
         return view('salas.index',['salas'=>$salas, 'usuarios'=>$usuarios]);
     }
@@ -46,4 +48,5 @@ class SalaController extends Controller
         $sala = Sala::find($id)->update($request->all());
         return redirect()->route('salas');
     }
+
 }

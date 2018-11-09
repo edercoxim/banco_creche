@@ -6,6 +6,7 @@ use creche\Http\Requests\AlunoRequest;
 use Illuminate\Http\Request;
 use creche\Aluno;
 use creche\Matricula;
+use Illuminate\Support\Facades\Input;
 
 class AlunoController extends Controller
 {
@@ -49,12 +50,15 @@ class AlunoController extends Controller
         return redirect()->route('alunos');
     }
 
-    public function busca($nome)
+    public function busca(Request $request)
     {
-   dd($nome);
-//    $alunos = Aluno::where ('name', 'LIKE', $nome .'%');
-//
-        return view('alunos.mostrar'); //, compact('alunos'));
+       // dd($request->input('nome'));
+        $nome = Input::get('nome');
+        $alunos = Aluno::where ('nome', 'LIKE', $request->input('nome') .'%')->get();
+       // dd($alunos->toArray());
+    return view('alunos.mostrar', compact('alunos'));
     }
-
+//
 }
+
+

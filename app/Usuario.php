@@ -10,13 +10,13 @@ class Usuario extends Model
 
     public function sala()
     {
-        return $this->hasOne('creche\sala');
+        return $this->hasOne(Sala::class)->with('usuario');
     }
 
     public function creche()
     {
 
-        return $this->belongsTo('creche\Creche');
+        return $this->belongsTo(Creche::class);//->with('usuario')
     }
 
 }

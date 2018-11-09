@@ -12,22 +12,25 @@
                 <th>Ano</th>
                 <th>Açao</th>
                 <th>Açao</th>
+
             </tr>
             </thead>
             <tbody>
 
             <?php foreach( $salas	as	$sl): ?>
-            <?php foreach( $usuarios	as	$us): ?>
+
             <tr>
                 <td>{{ $sl->id }}</td>
-                <td>{{ $us->nome }}</td>
+                <td>{{ $sl->usuario->nome }}</td>
+                {{--<td>{{ $sl->usuario->matricula->aluno->get('nome') }}</td>--}}
                 <td>{{ $sl->ano }}</td>
                 <td><a href="{{route('salas.edit',['id'=>$sl->id])}}" class="btn-sm btn-success">Editar</a> </td>
                 <td><a href="{{route('salas.destroy',['id'=>$sl->id])}}" class="btn-sm btn-danger">Remover</a> </td>
+
             </tr>
 
             <?php endforeach      ?>
-            <?php endforeach      ?>
+
 
         </table>
     </div>

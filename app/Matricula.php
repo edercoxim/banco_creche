@@ -16,13 +16,13 @@ class Matricula extends Model
     public function aluno()
     {
 
-        return $this->belongsTo('creche\Aluno');
+        return $this->belongsTo(Aluno::class);
     }
 
     public function sala()
     {
 
-        return $this->belongsTo('creche\Sala');
+        return $this->belongsTo(Sala::class);
     }
 
 }

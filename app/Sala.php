@@ -13,12 +13,13 @@ class Sala extends Model
 
     public function matricula()
     {
-        return $this->hasMany('creche\Matricula');
+        return $this->hasMany(Matricula::class);
+//        return $this->hasMany(Matricula::class)->with(Aluno::class);
     }
 
     public function usuario()
     {
-        return $this->hasOne('creche\usuario');
+        return $this->belongsTo(Usuario::class);
     }
 
 
