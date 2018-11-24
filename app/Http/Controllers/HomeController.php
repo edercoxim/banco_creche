@@ -2,6 +2,7 @@
 
 namespace creche\Http\Controllers;
 
+use creche\Creche;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/');
+        $creches = Creche::all();
+        return view('creches.listagem',['creches'=>$creches]);
+
+
     }
 
     public function show()

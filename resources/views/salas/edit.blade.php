@@ -20,6 +20,12 @@
             {!! Form::text('ano', $sala->ano, ['class'=>'form-control']) !!}
         </div>
 
+        <!-- Turma Form Input -->
+        <div class="form-group">
+            {!! Form::label('turma', 'Nome da Turma:') !!}
+            {!! Form::text('turma', $sala->turma, ['class'=>'form-control']) !!}
+        </div>
+
         <div class="form-group">
             {!! Form::submit('Salvar Novo', ['class'=>'btn btn-primary']) !!}
         </div>

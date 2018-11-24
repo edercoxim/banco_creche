@@ -2,7 +2,9 @@
 
 namespace creche\Http\Controllers;
 
+use creche\Creche;
 use creche\Http\Requests\AlunoRequest;
+use creche\Sala;
 use Illuminate\Http\Request;
 use creche\Aluno;
 use creche\Matricula;
@@ -16,17 +18,25 @@ class AlunoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+ //       $this->middleware('auth');
+        $this->middleware('needsRole:Admin,true' && 'needsRole:Coordenador,true');
+
     }
+
+    private $totalpage = 10;
 
     public function index()
     {
-        $alunos = Aluno::all();
-        return view('alunos.index',['alunos'=>$alunos]);
+        $alunos = Aluno::paginate($this->totalpage);
+        $matriculas = Matricula::all();
+       // dd($alunos->toArray());
+        return view('alunos.index',['alunos'=>$alunos, 'matriculas'=>$matriculas]);
     }
 
-    public function create(){
-        return view('alunos.create');
+    public function create()
+    {
+        $creches = Creche::all();
+        return view('alunos.create', ['creches'=>$creches]);
     }
 
     public function store(AlunoRequest $request){
@@ -52,11 +62,12 @@ class AlunoController extends Controller
 
     public function busca(Request $request)
     {
-       // dd($request->input('nome'));
         $nome = Input::get('nome');
-        $alunos = Aluno::where ('nome', 'LIKE', $request->input('nome') .'%')->get();
-       // dd($alunos->toArray());
-    return view('alunos.mostrar', compact('alunos'));
+        $alunos = Aluno::with('matricula')
+            ->where ('nome', 'LIKE', $request->input('nome') .'%')
+            ->get();
+//   dd($alunos->toArray());
+      return view('alunos.mostrar', compact('alunos'));
     }
 //
 }

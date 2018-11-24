@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatriculasTable extends Migration
+class CreateChamadaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateMatriculasTable extends Migration
      */
     public function up()
     {
-
-
-        Schema::create('matriculas', function (Blueprint $table) {
-
+        Schema::create('chamada', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('dataMatric');
-            $table->integer('aluno_id')->unsigned();
-            $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
+            $table->date('dia');
+            $table->boolean('presenca')->default(0);
+            $table->unsignedInteger('matricula_id');
+            $table->foreign('matricula_id')->references('id')->on('matriculas');
             $table->timestamps();
         });
     }
@@ -32,8 +30,6 @@ class CreateMatriculasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matriculas');
-//        Schema::disableForeignKeyConstraints('matriculas');
-
+        Schema::dropIfExists('chamada');
     }
 }

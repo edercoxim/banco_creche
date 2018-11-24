@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./chamada');
 
 window.Vue = require('vue');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalasTable extends Migration
+class SalasAddColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateSalasTable extends Migration
      */
     public function up()
     {
-        Schema::create('salas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('ano');
-            $table->text('turma');
-//
-            $table->timestamps();
+        Schema::table('salas', function (Blueprint $table) {
+          $table->integer('user_id')->unsigned();
+          $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -29,6 +26,8 @@ class CreateSalasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salas');
+        Schema::table('salas', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sala extends Model
 {
-    protected $fillable=['ano', 'usuario_id'];
+    protected $fillable=['ano', 'turma', 'user_id'];
 
 
     protected $table = 'salas';
 
     public function matricula()
     {
-        return $this->hasMany(Matricula::class);
-//        return $this->hasMany(Matricula::class)->with(Aluno::class);
+  //      return $this->hasMany(Matricula::class);
+      return $this->hasMany(Matricula::class)->with('aluno');
     }
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 
 

@@ -19,33 +19,34 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::all();
         $creches = Creche::all();
-        return view('usuarios.index',['usuarios'=>$usuarios, 'creches'=>$creches]);
+        //dd($users->toArray());
+        return view('users.index',['users'=>$usuarios, 'creches'=>$creches]);
     }
 
     public function create(){
         $creches = Creche::all();
-        return view('usuarios.create',['creches'=>$creches]);
+        return view('users.create',['creches'=>$creches]);
     }
 
     public function store(UsuarioRequest $request){
         $input = $request->all();
         Usuario::create($input);
-        return redirect()->route('usuarios');
+        return redirect()->route('users');
     }
 
     public function destroy($id){
         Usuario::find($id)->delete();
-        return redirect()->route('usuarios');
+        return redirect()->route('users');
     }
 
     public function edit($id){
         $usuario = Usuario::find($id);
-        return view('usuarios.edit',compact('usuario'));
+        return view('users.edit',compact('usuario'));
     }
 
     public function update(UsuarioRequest $request, $id){
         $usuario = Usuario::find($id)->update($request->all());
-        return redirect()->route('usuarios');
+        return redirect()->route('users');
     }
 
 }

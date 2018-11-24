@@ -20,8 +20,8 @@ class CreateAlunosTable extends Migration
             $table->text('mae');
             $table->text('pai');
             $table->text('telResponsavel');
-//            $table->integer('matricula_id')->unsigned()->nullable();
-//            $table->foreign('matricula_id')->references('id')->on('matriculas');
+//            $table->integer('creche_id')->unsigned()->nullable();
+//            $table->foreign('creche_id')->references('id')->on('creches');
             $table->timestamps();
         });
     }

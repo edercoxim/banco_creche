@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Usuario</h1>
 
-        {{--<a href="{{route('usuarios.create')}}" class="btn btn-danger">Novo Usuario</a>--}}
+        {{--<a href="{{route('users.create')}}" class="btn btn-danger">Novo Usuario</a>--}}
 
         {{--<a href="{{route('creches')}}" class="btn btn-danger">Lista Creche</a>--}}
         <br />
@@ -25,23 +25,24 @@
             </thead>
             <tbody>
 
-            <?php foreach ($creches  as  $cr):  ?>
-            <?php foreach( $usuarios	as	$us): ?>
+
+            <?php foreach( $users	as	$us): ?>
             <tr>
                 <td>{{ $us->id }}</td>
-                <td>{{ $us->nome }}</td>
+                <td>{{ $us->name }}</td>
                 <td>{{ $us->cpf }}</td>
                 <td>{{ $us->endereco}}</td>
                 <td>{{ $us->telefone }}</td>
-                <td>{{ $us->tipoUsuario }}</td>
-                <td>{{ $cr->nome }}</td>
-                <td><a href="{{route('usuarios.edit',['id'=>$us->id])}}" class="btn-sm btn-success">Editar</a> </td>
-                <td><a href="{{route('usuarios.destroy',['id'=>$us->id])}}" class="btn-sm btn-danger">Remover</a> </td>
+                <td>{{ $us->tipoUser }}</td>
+                <td>{{ $us->creche['nome'] }}</td>
+                <td><a href="{{route('users.edit',['id'=>$us->id])}}" class="btn-sm btn-success">Editar</a> </td>
+                <td><a href="{{route('users.destroy',['id'=>$us->id])}}" class="btn-sm btn-danger">Remover</a> </td>
             </tr>
 
-            <?php endforeach      ?>
+
             <?php endforeach      ?>
 
         </table>
+        {!! $users->links() !!}
     </div>
 @endsection

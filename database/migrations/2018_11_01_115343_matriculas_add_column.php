@@ -16,6 +16,8 @@ class MatriculasAddColumn extends Migration
         Schema::table('matriculas', function (Blueprint $table) {
             $table->integer('sala_id')->unsigned();
             $table->foreign('sala_id')->references('id')->on('salas')->onDelete('cascade');
+            $table->integer('creche_id')->unsigned()->nullable();
+            $table->foreign('creche_id')->references('id')->on('creches')->onDelete('cascade');
         });
     }
 

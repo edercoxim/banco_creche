@@ -6,12 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Creche extends Model
 {
-    protected $fillable = ['nome','endereco','bairro','diretor'];
+    protected $fillable=['nome', 'endereco', 'bairro', 'diretor'];
 
 
-public function usuario()
-{
+    public function user()
+    {
 
-    return $this->hasMany('creche\Usuario');
-}
+        return $this->hasMany(User::class);
+    }
+
+    public function aluno()
+    {
+        return $this->hasMany(Aluno::class);
+        /////
+    }
+
+    public function matricula()
+    {
+        return $this->hasMany(Matricula::class);
+    }
+
+
 }

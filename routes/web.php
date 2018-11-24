@@ -17,12 +17,13 @@ Route::get("/login", function (){
     return view("login");
 });
 //
-Route::get('/', 'CrecheController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'CrecheController@index');
+
 Auth::routes();
 
 Route::get('/creches', 'CrecheController@index')->name('creches');
-//Route::get('/show-user', 'HomeController@show')->name('home');
+
 
 //
 
@@ -38,15 +39,17 @@ Route::put('{id}/update',['as'=>'creches.update','uses'=>'CrecheController@updat
 
 
 
-Route::group(['prefix'=>'usuarios', 'where'=>['id'=>'[0-9]+']], function (){
+Route::group(['prefix'=>'users', 'where'=>['id'=>'[0-9]+']], function (){
 
-    Route::get('',['as'=>'usuarios','uses'=>'UsuarioController@index']);
-    Route::get('create',['as'=>'usuarios.create','uses'=>'UsuarioController@create']);
-    Route::post('store',['as'=>'usuarios.store','uses'=>'UsuarioController@store']);
-    Route::get('{id}/destroy',['as'=>'usuarios.destroy','uses'=>'UsuarioController@destroy']);
-    Route::get('{id}/edit',['as'=>'usuarios.edit','uses'=>'UsuarioController@edit']);
-    Route::put('{id}/update',['as'=>'usuarios.update','uses'=>'UsuarioController@update']);
+    Route::get('',['as'=>'users','uses'=>'AdminController@index']);
+    Route::get('create',['as'=>'users.create','uses'=>'AdminController@create']);
+    Route::post('store',['as'=>'users.store','uses'=>'AdminController@store']);
+    Route::get('{id}/destroy',['as'=>'users.destroy','uses'=>'AdminController@destroy']);
+    Route::get('{id}/edit',['as'=>'users.edit','uses'=>'UserController@edit']);
+    Route::put('{id}/update',['as'=>'users.update','uses'=>'UserController@update']);
 });
+
+
 
 Route::group(['prefix'=>'alunos', 'where'=>['id'=>'[0-9]+']], function (){
 
@@ -56,15 +59,9 @@ Route::group(['prefix'=>'alunos', 'where'=>['id'=>'[0-9]+']], function (){
     Route::get('{id}/destroy',['as'=>'alunos.destroy','uses'=>'AlunoController@destroy']);
     Route::get('{id}/edit',['as'=>'alunos.edit','uses'=>'AlunoController@edit']);
     Route::put('{id}/update',['as'=>'alunos.update','uses'=>'AlunoController@update']);
-
-
-  //  Route::get('busca-nome',['as'=>'busca-nome','uses'=>'AlunoController@busca']);
    Route::get('busca-nome/{nome?}', 'AlunoController@busca')-> name ('busca-nome');
 
 });
-
-
-
 
 
 Route::group(['prefix'=>'matriculas', 'where'=>['id'=>'[0-9]+']], function (){
@@ -88,3 +85,9 @@ Route::group(['prefix'=>'salas', 'where'=>['id'=>'[0-9]+']], function (){
 });
 
 
+Route::group(['prefix'=>'chamadas', 'where'=>['id'=>'[0-9]+']], function (){
+
+    Route::get('{sala_id}',['as'=>'chamadas','uses'=>'ChamadaController@index']);
+    Route::get('/realizar-chamada/{presenca}/{falta}/{data}',['as'=>'realizar-chamada','uses'=>'ChamadaController@realizarChamada']);
+
+});

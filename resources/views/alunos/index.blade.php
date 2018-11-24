@@ -35,5 +35,7 @@
             <?php endforeach      ?>
 
         </table>
+    {!! $alunos->links() !!}
+
     </div>
 @endsection

@@ -44,6 +44,16 @@
             {!! Form::text('telResponsavel', null, ['class'=>'form-control']) !!}
         </div>
 
+        {{--<div class="form-group">--}}
+            {{--<label for="">id da Creche</label>--}}
+            {{--<select name="creche_id" id="inputCreche_id" class="form-control">--}}
+                {{--@foreach($creches as $cr)--}}
+                    {{--<option value="{{$cr['id']}}">{{$cr['nome']}}</option>--}}
+                {{--@endforeach--}}
+
+            {{--</select>--}}
+        {{--</div>--}}
+
 
         <div class="form-group">
             {!! Form::submit('Criar Aluno', ['class'=>'btn btn-primary']) !!}

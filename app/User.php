@@ -2,13 +2,21 @@
 
 namespace creche;
 
+use Artesaos\Defender\Traits\HasDefender;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
+    use HasDefender;
+
+    const ADMIN = 'Admin';
+    const PROFESSOR = 'Professor';
+    const ATENDENTE = 'Atendente';
+    const COORDENADOR = 'Coordenador';
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email', 'password', 'cpf','endereco','telefone','tipoUser','creche_id'
     ];
 
     /**
@@ -27,4 +35,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function sala()
+    {
+        return $this->hasOne(Sala::class)->with('user');
+    }
+
+    public function creche()
+    {
+
+        return $this->belongsTo(Creche::class);
+    }
+
+
 }

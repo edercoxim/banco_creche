@@ -22,7 +22,6 @@
             </thead>
             <tbody>
 
-<!--       ?php //foreach( $creches	as	$c): ?>  -->
          <?php foreach( $creches	as	$c): ?>
             <tr>
                 <td>{{ $c->id }}</td>

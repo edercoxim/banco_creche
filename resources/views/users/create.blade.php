@@ -12,12 +12,12 @@
             </ul>
         @endif
 
-        {!! Form::open(['route'=>'usuarios.store']) !!}
+        {!! Form::open(['route'=>'users.store']) !!}
 
     <!-- Nome Form Input -->
         <div class="form-group">
-            {!! Form::label('nome', 'Nome:') !!}
-            {!! Form::text('nome', null, ['class'=>'form-control']) !!}
+            {!! Form::label('name', 'Nome:') !!}
+            {!! Form::text('name', null, ['class'=>'form-control']) !!}
         </div>
 
         <!-- Cpf Form Input -->
@@ -26,10 +26,22 @@
             {!! Form::text('cpf', null, ['class'=>'form-control']) !!}
         </div>
 
+        <!-- Cpf Form Input -->
+        <div class="form-group">
+            {!! Form::label('passoword', 'Password:') !!}
+            {!! Form::text('password', null, ['class'=>'form-control']) !!}
+        </div>
+
         <!-- endereco Form Input -->
         <div class="form-group">
             {!! Form::label('endereco', 'Endereco:') !!}
             {!! Form::text('endereco', null, ['class'=>'form-control']) !!}
+        </div>
+
+        <!-- email Form Input -->
+        <div class="form-group">
+            {!! Form::label('email', 'Email:') !!}
+            {!! Form::text('email', null, ['class'=>'form-control']) !!}
         </div>
 
         <!-- Telefone Form Input -->
@@ -41,13 +53,18 @@
         <!-- Tipo de Usuario Form Input -->
         <div class="form-group">
             <label for="">tipo de Usuario</label>
-            <select type="text" name="tipoUsuario" tipoUsuario="inputtipoUsuario" class="form-control">
+            <select type="text" name="regra" tipoUser="inputtipoUser" class="form-control">
                 <option ></option>
                 <option value="Atendente">Atendente</option>
                 <option value="Professor">Professor</option>
+                @is('Admin')
                 <option value="Coordenador">Coordenador</option>
+                <option value="Admin">Admin</option>
+                @endis
             </select>
         </div>
+
+
 
         <!-- Creche Form Input -->
         <div class="form-group">
@@ -59,6 +76,8 @@
 
             </select>
         </div>
+
+
 
 
        <button type="submit" class="btn btn-primary">Salvar Usuario</button>

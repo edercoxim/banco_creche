@@ -1,34 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalasTable extends Migration
+class CreateDefenderPermissionsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('salas', function (Blueprint $table) {
+        Schema::create(config('defender.permission_table', 'permissions'), function (Blueprint $table) {
             $table->increments('id');
-            $table->text('ano');
-            $table->text('turma');
-//
+            $table->string('name')->unique();
+            $table->string('readable_name');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('salas');
+        Schema::drop(config('defender.permission_table', 'permissions'));
     }
 }

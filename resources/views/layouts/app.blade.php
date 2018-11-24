@@ -36,6 +36,7 @@
                     {{--<a class="navbar-brand" href="{{ url('/') }}">Home</a>--}}
                     @if (!Auth::guest())
                         {{--<a class="navbar-brand" href="{{ url('/creches') }}">Creches</a>--}}
+                    @is('Admin')
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +47,8 @@
                             <a class="dropdown-item" href="{{ url('/creches/create') }}">Nova Creche</a>
                         </div>
                         </li>
-                        {{--<a class="navbar-brand" href="{{ url('/usuarios') }}">Usuarios</a>--}}
+
+                        {{--<a class="navbar-brand" href="{{ url('/users') }}">Usuarios</a>--}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,11 +56,13 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{{ url('/usuarios') }}">Lista de Usuarios</a>
-                                <a class="dropdown-item" href="{{ url('/usuarios/create') }}">Novo Usuario</a>
+                                <a class="dropdown-item" href="{{ url('/users') }}">Lista de Usuarios</a>
+                                <a class="dropdown-item" href="{{ url('/users/create') }}">Novo Usuario</a>
                             </div>
 
                         </li>
+
+                        @endis
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,7 +109,7 @@
                                 <form action="{{route('busca-nome')}}" method="get">
                                     <div >
                                         <input type="text" name="nome" value="{{ old('nome') }}">
-                                        <button class="btn btn-default btn-sm" type="submit"> Ok </button>
+                                        <button class="btn btn-default btn-sm" type="submit">Pesquisar Aluno </button>
                                     </div>
 
                                 </form>
@@ -139,7 +143,7 @@
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    {{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
                                 @endif
                             </li>
                         @else

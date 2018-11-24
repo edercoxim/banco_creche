@@ -2,6 +2,7 @@
 
 namespace creche\Http\Controllers;
 
+use creche\Creche;
 use creche\Http\Requests\MatriculaRequest;
 use creche\Sala;
 use Illuminate\Http\Request;
@@ -18,9 +19,12 @@ class MatriculaController extends Controller
 
     public function index()
     {
-        $matriculas=Matricula::all();
-        $alunos = Aluno::all();
+        $matriculas = Matricula::with('aluno')->get();
+       $alunos = Aluno::all();
         $salas = Sala::all();
+      // $creches = Creche::all();
+        //dd($matriculas->toArray());
+
         return view('matriculas.index', ['matriculas'=>$matriculas, 'alunos'=>$alunos, 'salas'=>$salas]);
 
     }
@@ -30,7 +34,8 @@ class MatriculaController extends Controller
        //dd($id);
         $alunos = Aluno::all();
         $salas = Sala::all();
-        return view('matriculas.create',compact('alunos', 'salas', 'id'));
+        $creches = Creche::all();
+        return view('matriculas.create',compact('alunos','salas', 'id','creches'));
     }
 
     public function store(MatriculaRequest $request)

@@ -20,12 +20,18 @@
             {!! Form::text('ano', null, ['class'=>'form-control']) !!}
         </div>
 
+        <!-- Turma Form Input -->
+        <div class="form-group">
+            {!! Form::label('turma', 'Nome da Turma:') !!}
+            {!! Form::text('turma', null, ['class'=>'form-control']) !!}
+        </div>
+
     <!-- Usuario Form Input -->
         <div class="form-group">
-            <label for="">id do Usuario</label>
-            <select name="usuario_id" id="inputusuario_id" class="form-control">
-                @foreach($usuarios as $us)
-                    <option value="{{$us['id']}}">{{$us['nome']}}</option>
+            <label for="">Professor(a)</label>
+            <select name="user_id" id="inputuser_id" class="form-control">
+                @foreach($users as $us)
+                    <option value="{{$us['id']}}">{{$us['name']}}</option>
                 @endforeach
 
             </select>
