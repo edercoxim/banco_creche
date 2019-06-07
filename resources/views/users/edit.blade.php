@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
+<<<<<<< HEAD
         <h1>Editar Usuario: {{$user->name}}</h1>
+=======
+        <h1>Editar Usuario: {{$usuario->name}}</h1>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
         @if ($errors->any())
             <ul class="alert alert-warning">
@@ -17,7 +21,11 @@
     <!-- Nome Form Input -->
         <div class="form-group">
             {!! Form::label('nome', 'Nome:') !!}
+<<<<<<< HEAD
             {!! Form::text('name', $user->name, ['class'=>'form-control']) !!}
+=======
+            {!! Form::text('nome', $user->nome, ['class'=>'form-control']) !!}
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         </div>
 
         <!-- Cpf Form Input -->
@@ -26,12 +34,15 @@
             {!! Form::text('cpf', $user->cpf, ['class'=>'form-control']) !!}
         </div>
 
+<<<<<<< HEAD
         <!-- Email Form Input -->
         <div class="form-group">
             {!! Form::label('email', 'Email:') !!}
             {!! Form::text('email', $user->email, ['class'=>'form-control']) !!}
         </div>
 
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         <!-- Endereco Form Input -->
         <div class="form-group">
             {!! Form::label('endereco', 'Endereco:') !!}
@@ -45,6 +56,7 @@
         </div>
 
         <!-- Tipo Usuario Form Input -->
+<<<<<<< HEAD
         {{--<div class="form-group">--}}
             {{--{!! Form::label('tipoUser', 'TipoUser:') !!}--}}
             {{--{!! Form::text('tipoUser', $user->tipoUser, ['class'=>'form-control']) !!}--}}
@@ -74,6 +86,9 @@
 
             </select>
         </div>
+=======
+
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
         <div class="form-group">
             {!! Form::submit('Salvar Novo', ['class'=>'btn btn-primary']) !!}

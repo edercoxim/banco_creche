@@ -20,6 +20,7 @@
             {!! Form::text('ano', null, ['class'=>'form-control']) !!}
         </div>
 
+<<<<<<< HEAD
         <!-- Turma Form Input -->
         <div class="form-group">
             {!! Form::label('turma', 'Nome da Turma:') !!}
@@ -48,6 +49,19 @@
             </select>
         </div>
 
+=======
+    <!-- Usuario Form Input -->
+        <div class="form-group">
+            <label for="">id do Usuario</label>
+            <select name="user_id" id="inputuser_id" class="form-control">
+                @foreach($users as $us)
+                    <option value="{{$us['id']}}">{{$us['nome']}}</option>
+                @endforeach
+
+            </select>
+        </div>
+
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         <div class="form-group">
             {!! Form::submit('Criar Sala', ['class'=>'btn btn-primary']) !!}
         </div>

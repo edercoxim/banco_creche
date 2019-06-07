@@ -17,6 +17,7 @@ Route::get("/login", function (){
     return view("login");
 });
 //
+<<<<<<< HEAD
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'CrecheController@index');
 
@@ -24,6 +25,14 @@ Auth::routes();
 
 Route::get('/creches', 'CrecheController@index')->name('creches');
 
+=======
+Route::get('/', 'CrecheController@index');
+Route::get('/home', 'CrecheController@index');
+Auth::routes();
+
+Route::get('/creches', 'CrecheController@index')->name('creches');
+//Route::get('/show-user', 'HomeController@show')->name('home');
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
 //
 
@@ -39,18 +48,40 @@ Route::put('{id}/update',['as'=>'creches.update','uses'=>'CrecheController@updat
 
 
 
+<<<<<<< HEAD
 Route::group(['prefix'=>'users', 'where'=>['id'=>'[0-9]+']], function (){
 
     Route::get('',['as'=>'users','uses'=>'AdminController@index']);
     Route::get('create',['as'=>'users.create','uses'=>'AdminController@create']);
     Route::post('store',['as'=>'users.store','uses'=>'AdminController@store']);
     Route::get('{id}/destroy',['as'=>'users.destroy','uses'=>'AdminController@destroy']);
+=======
+//Route::group(['prefix'=>'usuarios', 'where'=>['id'=>'[0-9]+']], function (){
+//
+//    Route::get('',['as'=>'usuarios','uses'=>'UsuarioController@index']);
+//    Route::get('create',['as'=>'usuarios.create','uses'=>'UsuarioController@create']);
+//    Route::post('store',['as'=>'usuarios.store','uses'=>'UsuarioController@store']);
+//    Route::get('{id}/destroy',['as'=>'usuarios.destroy','uses'=>'UsuarioController@destroy']);
+//    Route::get('{id}/edit',['as'=>'usuarios.edit','uses'=>'UsuarioController@edit']);
+//    Route::put('{id}/update',['as'=>'usuarios.update','uses'=>'UsuarioController@update']);
+//});
+
+Route::group(['prefix'=>'users', 'where'=>['id'=>'[0-9]+']], function (){
+
+    Route::get('',['as'=>'users','uses'=>'UserController@index']);
+    Route::get('create',['as'=>'users.create','uses'=>'UserController@create']);
+    Route::post('store',['as'=>'users.store','uses'=>'UserController@store']);
+    Route::get('{id}/destroy',['as'=>'users.destroy','uses'=>'UserController@destroy']);
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     Route::get('{id}/edit',['as'=>'users.edit','uses'=>'UserController@edit']);
     Route::put('{id}/update',['as'=>'users.update','uses'=>'UserController@update']);
 });
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 Route::group(['prefix'=>'alunos', 'where'=>['id'=>'[0-9]+']], function (){
 
     Route::get('',['as'=>'alunos','uses'=>'AlunoController@index']);
@@ -59,11 +90,16 @@ Route::group(['prefix'=>'alunos', 'where'=>['id'=>'[0-9]+']], function (){
     Route::get('{id}/destroy',['as'=>'alunos.destroy','uses'=>'AlunoController@destroy']);
     Route::get('{id}/edit',['as'=>'alunos.edit','uses'=>'AlunoController@edit']);
     Route::put('{id}/update',['as'=>'alunos.update','uses'=>'AlunoController@update']);
+<<<<<<< HEAD
    Route::get('busca-nome/{nome?}', 'AlunoController@busca')-> name ('busca-nome');
 
 });
 
 
+=======
+});
+
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 Route::group(['prefix'=>'matriculas', 'where'=>['id'=>'[0-9]+']], function (){
 
     Route::get('',['as'=>'matriculas','uses'=>'MatriculaController@index']);
@@ -85,6 +121,7 @@ Route::group(['prefix'=>'salas', 'where'=>['id'=>'[0-9]+']], function (){
 });
 
 
+<<<<<<< HEAD
 Route::group(['prefix'=>'chamadas', 'where'=>['id'=>'[0-9]+']], function (){
 
     Route::get('{sala_id}',['as'=>'chamadas.index','uses'=>'ChamadaController@indexx']);
@@ -93,3 +130,5 @@ Route::group(['prefix'=>'chamadas', 'where'=>['id'=>'[0-9]+']], function (){
    Route::get('LP/{sala_id}',['as'=>'chamadas','uses'=>'ChamadaController@listaPresenca']);
 
 });
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce

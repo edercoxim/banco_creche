@@ -18,12 +18,15 @@
         <div class="form-group">
             {!! Form::label('ano', 'Ano:') !!}
             {!! Form::text('ano', $sala->ano, ['class'=>'form-control']) !!}
+<<<<<<< HEAD
         </div>
 
         <!-- Turma Form Input -->
         <div class="form-group">
             {!! Form::label('turma', 'Nome da Turma:') !!}
             {!! Form::text('turma', $sala->turma, ['class'=>'form-control']) !!}
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         </div>
 
         <div class="form-group">

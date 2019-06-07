@@ -22,13 +22,17 @@
         </div>
 
 
+<<<<<<< HEAD
         <!-- Matricular com id do Aluno  -->
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         <div class="form-group">
             {!! Form::label('id', 'Id Aluno:') !!}
             {{--{!! Form::integer('id', $al['id'], ['class'=>'form-control']) !!}--}}
             <input type="text" class="form-control" name="aluno_id" value="{{$id}}">
         </div>
 
+<<<<<<< HEAD
         <!-- Matricular com id da Sala  -->
         <div class="form-group">
             <label for="">id da Sala</label>
@@ -45,6 +49,14 @@
             <select name="creche_id" id="inputCreche_id" class="form-control">
                 @foreach($creches as $cr)
                     <option value="{{$cr['id']}}">{{$cr['nome']}}</option>
+=======
+
+        <div class="form-group">
+            <label for="">id da Sala</label>
+            <select name="sala_id" id="inputSala_id" class="form-control">
+                @foreach($salas as $sl)
+                    <option value="{{$sl['id']}}">{{$sl['ano']}}</option>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                 @endforeach
 
             </select>

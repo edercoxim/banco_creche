@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     Voce esta Logado!
+=======
+                    You are logged in!
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                 </div>
             </div>
         </div>

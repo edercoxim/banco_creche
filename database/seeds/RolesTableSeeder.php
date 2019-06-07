@@ -15,6 +15,9 @@ class RolesTableSeeder extends Seeder
         Defender::createRole('Admin');
         Defender::createRole('Professor');
         Defender::createRole('Atendente');
+<<<<<<< HEAD
         Defender::createRole('Coordenador');
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     }
 }

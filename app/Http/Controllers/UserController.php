@@ -2,12 +2,17 @@
 
 namespace creche\Http\Controllers;
 
+<<<<<<< HEAD
 use Artesaos\Defender\Facades\Defender;
 use creche\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use creche\User;
 use creche\Creche;
 use Illuminate\Support\Facades\Hash;
+=======
+use creche\Http\Requests\UserRequest;
+use Illuminate\Http\Request;
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
 class UserController extends Controller
 {
@@ -15,6 +20,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+<<<<<<< HEAD
     private $totalpage = 10;
 
     public function index()
@@ -27,6 +33,18 @@ class UserController extends Controller
 
     public function create()
     {
+=======
+
+
+    public function index()
+    {
+        $users = User::all();
+        $creches = Creche::all();
+        return view('users.index',['users'=>$users, 'creches'=>$creches]);
+    }
+
+    public function create(){
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         $creches = Creche::all();
         return view('users.create',['creches'=>$creches]);
     }
@@ -43,6 +61,7 @@ class UserController extends Controller
     }
 
     public function edit($id){
+<<<<<<< HEAD
         $creches = Creche::all();
         $user = User::find($id);
         return view('users.edit',compact('user', 'creches',$creches));
@@ -84,4 +103,14 @@ class UserController extends Controller
     }
 
 
+=======
+        $user = User::find($id);
+        return view('users.edit',compact('user'));
+    }
+
+    public function update(UserRequest $request, $id){
+        $user = User::find($id)->update($request->all());
+        return redirect()->route('users');
+    }
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 }

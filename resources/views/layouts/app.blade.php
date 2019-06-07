@@ -36,7 +36,10 @@
                     {{--<a class="navbar-brand" href="{{ url('/') }}">Home</a>--}}
                     @if (!Auth::guest())
                         {{--<a class="navbar-brand" href="{{ url('/creches') }}">Creches</a>--}}
+<<<<<<< HEAD
                     @is('Admin')
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,8 +50,12 @@
                             <a class="dropdown-item" href="{{ url('/creches/create') }}">Nova Creche</a>
                         </div>
                         </li>
+<<<<<<< HEAD
 
                         {{--<a class="navbar-brand" href="{{ url('/users') }}">Usuarios</a>--}}
+=======
+                        {{--<a class="navbar-brand" href="{{ url('/usuarios') }}">Usuarios</a>--}}
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,6 +63,7 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="{{ url('/users') }}">Lista de Usuarios</a>
                                 <a class="dropdown-item" href="{{ url('/users/create') }}">Novo Usuario</a>
                             </div>
@@ -63,6 +71,13 @@
                         </li>
 
                         @endis
+=======
+                                <a class="dropdown-item" href="{{ url('/users') }}">Lista de Users</a>
+                                <a class="dropdown-item" href="{{ url('/users/create') }}">Novo Users</a>
+                            </div>
+
+                        </li>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,11 +86,15 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/alunos') }}">Lista de Alunos</a>
+<<<<<<< HEAD
                                 @is(['Admin','Atendente'])
                                 <a class="dropdown-item" href="{{ url('/alunos/create') }}">Novo Aluno</a>
                                 @endis
                               
 
+=======
+                                <a class="dropdown-item" href="{{ url('/alunos/create') }}">Novo Aluno</a>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                             </div>
 
                         </li>
@@ -88,7 +107,11 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/matriculas') }}">Lista de Matriculas</a>
+<<<<<<< HEAD
 
+=======
+                                <a class="dropdown-item" href="{{ url('/matriculas/create') }}">Nova Matricula</a>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                             </div>
 
                         </li>
@@ -101,6 +124,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/salas') }}">Lista de Salas</a>
+<<<<<<< HEAD
                                 @is(['Admin','Atendente'])
                                 <a class="dropdown-item" href="{{ url('/salas/create') }}">Nova Sala</a>
                                 @endis
@@ -124,6 +148,13 @@
                         </li>
 
                     @endif
+=======
+                                <a class="dropdown-item" href="{{ url('/salas/create') }}">Nova Sala</a>
+                            </div>
+
+                        </li>
+                @endif
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
                 <!-- Left Side Of Navbar -->
 
@@ -136,7 +167,10 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                     </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                 </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -145,11 +179,19 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
                                     {{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+=======
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
                                 @endif
                             </li>
                         @else
@@ -174,7 +216,11 @@
                             </li>
                         @endguest
                     </ul>
+<<<<<<< HEAD
 
+=======
+                    {{--</ul>--}}
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
             </div>
        </nav>
 

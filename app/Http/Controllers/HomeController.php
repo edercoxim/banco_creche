@@ -2,7 +2,10 @@
 
 namespace creche\Http\Controllers;
 
+<<<<<<< HEAD
 use creche\Creche;
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,10 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $creches = Creche::all();
         return view('creches.listagem',['creches'=>$creches]);
 
 
+=======
+        return view('/');
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     }
 
     public function show()

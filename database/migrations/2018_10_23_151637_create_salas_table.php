@@ -16,8 +16,13 @@ class CreateSalasTable extends Migration
         Schema::create('salas', function (Blueprint $table) {
             $table->increments('id');
             $table->text('ano');
+<<<<<<< HEAD
             $table->text('turma');
 //
+=======
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
             $table->timestamps();
         });
     }

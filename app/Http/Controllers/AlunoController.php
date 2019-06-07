@@ -2,6 +2,7 @@
 
 namespace creche\Http\Controllers;
 
+<<<<<<< HEAD
 use creche\Creche;
 use creche\Http\Requests\AlunoRequest;
 use creche\Sala;
@@ -9,10 +10,17 @@ use Illuminate\Http\Request;
 use creche\Aluno;
 use creche\Matricula;
 use Illuminate\Support\Facades\Input;
+=======
+use creche\Http\Requests\AlunoRequest;
+use Illuminate\Http\Request;
+use creche\Aluno;
+use creche\Matricula;
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 
 class AlunoController extends Controller
 {
 
+<<<<<<< HEAD
 
     public function __construct()
     {
@@ -33,6 +41,24 @@ class AlunoController extends Controller
     {
         $creches = Creche::all();
         return view('alunos.create', ['creches'=>$creches]);
+=======
+    /**
+     * @return $this
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $alunos = Aluno::all();
+        return view('alunos.index',['alunos'=>$alunos]);
+    }
+
+    public function create(){
+        return view('alunos.create');
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     }
 
     public function store(AlunoRequest $request){
@@ -55,6 +81,7 @@ class AlunoController extends Controller
         $aluno = Aluno::find($id)->update($request->all());
         return redirect()->route('alunos');
     }
+<<<<<<< HEAD
 
     public function busca(Request $request)
     {
@@ -69,3 +96,6 @@ class AlunoController extends Controller
 }
 
 
+=======
+}
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce

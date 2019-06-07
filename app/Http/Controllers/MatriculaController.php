@@ -2,7 +2,10 @@
 
 namespace creche\Http\Controllers;
 
+<<<<<<< HEAD
 use creche\Creche;
+=======
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
 use creche\Http\Requests\MatriculaRequest;
 use creche\Sala;
 use Illuminate\Http\Request;
@@ -19,23 +22,36 @@ class MatriculaController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
         $matriculas = Matricula::with('aluno')->get();
        $alunos = Aluno::all();
         $salas = Sala::all();
       // $creches = Creche::all();
         //dd($matriculas->toArray());
 
+=======
+        $matriculas=Matricula::all();
+        $alunos = Aluno::all();
+        $salas = Sala::all();
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
         return view('matriculas.index', ['matriculas'=>$matriculas, 'alunos'=>$alunos, 'salas'=>$salas]);
 
     }
 
     public function create($id)
     {
+<<<<<<< HEAD
        //dd($id);
         $alunos = Aluno::all();
         $salas = Sala::all();
         $creches = Creche::all();
         return view('matriculas.create',compact('alunos','salas', 'id','creches'));
+=======
+//        dd($id);
+        $alunos = Aluno::all();
+        $salas = Sala::all();
+        return view('matriculas.create',compact('alunos', 'salas', 'id'));
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     }
 
     public function store(MatriculaRequest $request)

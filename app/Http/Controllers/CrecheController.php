@@ -15,7 +15,11 @@ class CrecheController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         $this->middleware('needsRole:Admin,true');
+=======
+        $this->middleware('auth');
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
     }
 
     public function index()

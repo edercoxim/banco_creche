@@ -19,11 +19,16 @@
                 @is('Admin')
                 <th>Açao</th>
                 <th>Açao</th>
+<<<<<<< HEAD
                 @endis
+=======
+                <th>Açao</th>
+>>>>>>> ecd420b87383ebef89dc91064cd10d2a7b2649ce
             </tr>
             </thead>
             <tbody>
 
+<!--       ?php //foreach( $creches	as	$c): ?>  -->
          <?php foreach( $creches	as	$c): ?>
             <tr>
                 <td>{{ $c->id }}</td>
