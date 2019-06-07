@@ -11,7 +11,7 @@ class Chamada extends Model
     protected $table = 'chamada';
 
     public function matricula(){
-        return $this->belongsTo(Matricula::class);
+        return $this->belongsTo(Matricula::class)->with('aluno');
     }
 
 

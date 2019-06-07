@@ -2,6 +2,7 @@
 
 namespace creche\Http\Controllers;
 
+use creche\Creche;
 use creche\Http\Requests\SalaRequest;
 use creche\Matricula;
 use creche\User;
@@ -17,9 +18,6 @@ class SalaController extends Controller
 
     public function index()
     {
-        if(User::COORDENADOR){
-            $salas = Sala::all();
-        }else
 //        $userLogado = auth()->user();
 //        $creche_id = $userLogado->creche_id;
 //          dd($userLogado);
@@ -30,21 +28,43 @@ class SalaController extends Controller
 //        }else
         $u=User::where('id', auth()->user()->getAuthIdentifier())->get();
         foreach ($u as $d) {
-            $perfilUsuarioLogado = $d->tipoUser;
-            var_dump($perfilUsuarioLogado);
+            $perfilUsuarioLogado=$d->tipoUser;
+            $crecheUsuario=$d->creche_id;
+            //var_dump($perfilUsuarioLogado);
+            //var_dump('creche do Usuario :',$crecheUsuario);
+
         }
-        $salas=Sala::where('user_id', auth()->user()->getAuthIdentifier())->get();
-        //$salas=Sala::all();
-     //   dd($salas->toArray());
-        $users=User::all();
-        return view('salas.index', ['salas'=>$salas, 'users'=>$users]);
+        if ($perfilUsuarioLogado == "Admin" )
+        {
+           // var_dump($perfilUsuarioLogado);
+            $creches=Creche::all();
+            $salas=Sala::all();
+            $users=User::all();
+        } else if ($perfilUsuarioLogado == "Atendente")
+        {
+//var_dump('sou atendente');
+//            $salas=Sala::all();
+            $creches=Creche::all();
+            $salas = Sala::where('creche_id', '=', $crecheUsuario)->get();
+            $users=User::all();
+        } else //($perfilUsuarioLogado == "Professor")
+        {
+            $creches=Creche::all();
+            $salas=Sala::where('user_id', auth()->user()->getAuthIdentifier())->get();
+            //$salas=Sala::all();
+            //   dd($salas->toArray());
+            $users=User::all();
+        }
+
+        return view('salas.index', ['salas'=>$salas, 'users'=>$users, 'creches'=>$creches]);
     }
 
     public function create()
     {
+        $creches=Creche::all();
         $salas=Sala::all();
         $users=User::all();
-        return view('salas.create', ['salas'=>$salas, 'users'=>$users]);
+        return view('salas.create', ['creches'=>$creches, 'salas'=>$salas, 'users'=>$users]);
     }
 
     public function store(SalaRequest $request)
@@ -71,5 +91,11 @@ class SalaController extends Controller
         $sala=Sala::find($id)->update($request->all());
         return redirect()->route('salas');
     }
+
+//    public function chamar($id)
+//    {
+//        $salas = Sala::where('creche_id', '=', $creche_id)->get();
+//        return view('salas.index', ['salas'=>$salas, 'users'=>$users]);
+//    }
 
 }

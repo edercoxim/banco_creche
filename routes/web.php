@@ -87,7 +87,9 @@ Route::group(['prefix'=>'salas', 'where'=>['id'=>'[0-9]+']], function (){
 
 Route::group(['prefix'=>'chamadas', 'where'=>['id'=>'[0-9]+']], function (){
 
-    Route::get('{sala_id}',['as'=>'chamadas','uses'=>'ChamadaController@index']);
+    Route::get('{sala_id}',['as'=>'chamadas.index','uses'=>'ChamadaController@indexx']);
+//    Route::get('{creche_id}',['as'=>'chamadas.index','uses'=>'ChamadaController@index']);
     Route::get('/realizar-chamada/{presenca}/{falta}/{data}',['as'=>'realizar-chamada','uses'=>'ChamadaController@realizarChamada']);
+   Route::get('LP/{sala_id}',['as'=>'chamadas','uses'=>'ChamadaController@listaPresenca']);
 
 });

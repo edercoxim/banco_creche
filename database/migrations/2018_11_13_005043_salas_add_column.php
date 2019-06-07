@@ -16,6 +16,8 @@ class SalasAddColumn extends Migration
         Schema::table('salas', function (Blueprint $table) {
           $table->integer('user_id')->unsigned();
           $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('creche_id')->unsigned();
+            $table->foreign('creche_id')->references('id')->on('creches');
         });
     }
 

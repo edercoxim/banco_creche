@@ -19,8 +19,10 @@
                 <th>Telefone</th>
                 <th>Tipo/Usuario</th>
                 <th>Creche</th>
+                @is('atendente')
                 <th>Açao</th>
                 <th>Açao</th>
+                @endis
             </tr>
             </thead>
             <tbody>
@@ -35,8 +37,10 @@
                 <td>{{ $us->telefone }}</td>
                 <td>{{ $us->tipoUser }}</td>
                 <td>{{ $us->creche['nome'] }}</td>
+                @is('Admin')
                 <td><a href="{{route('users.edit',['id'=>$us->id])}}" class="btn-sm btn-success">Editar</a> </td>
                 <td><a href="{{route('users.destroy',['id'=>$us->id])}}" class="btn-sm btn-danger">Remover</a> </td>
+                @endis
             </tr>
 
 

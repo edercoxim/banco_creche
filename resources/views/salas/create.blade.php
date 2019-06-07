@@ -37,6 +37,17 @@
             </select>
         </div>
 
+        <!-- Creche Form Input -->
+        <div class="form-group">
+            <label for="">id da Creche</label>
+            <select name="creche_id" id="inputcreche_id" class="form-control">
+                @foreach($creches as $cr)
+                    <option value="{{$cr['id']}}">{{$cr['nome']}}</option>
+                @endforeach
+
+            </select>
+        </div>
+
         <div class="form-group">
             {!! Form::submit('Criar Sala', ['class'=>'btn btn-primary']) !!}
         </div>

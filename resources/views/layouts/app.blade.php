@@ -71,7 +71,11 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/alunos') }}">Lista de Alunos</a>
+                                @is(['Admin','Atendente'])
                                 <a class="dropdown-item" href="{{ url('/alunos/create') }}">Novo Aluno</a>
+                                @endis
+                              
+
                             </div>
 
                         </li>
@@ -97,7 +101,9 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/salas') }}">Lista de Salas</a>
+                                @is('Admin'||'Atendente')
                                 <a class="dropdown-item" href="{{ url('/salas/create') }}">Nova Sala</a>
+                                @endis
                             </div>
 
                         </li>
@@ -139,7 +145,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))

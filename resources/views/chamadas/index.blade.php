@@ -4,14 +4,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <button id="chamada" class="btn btn-success pull-right">Salvar Chamada</button>
-
             </div>
-            <div class="col-lg-6">
+
+
+            <div class="col-lg-4">
+                <label>Selecione a Data</label>
                 <input type="date" id="dia"  onclick="matricula({{$alunos}})" class="form-control">
-
             </div>
+
 
         </div>
 

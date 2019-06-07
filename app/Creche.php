@@ -26,5 +26,10 @@ class Creche extends Model
         return $this->hasMany(Matricula::class);
     }
 
+    public function sala()
+    {
+        return $this->hasMany(Sala::class);
+    }
+
 
 }

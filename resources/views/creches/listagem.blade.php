@@ -16,8 +16,10 @@
                 <th>Nome</th>
                 <th>Diretor</th>
                 <th>Endereço</th>
+                @is('Admin')
                 <th>Açao</th>
                 <th>Açao</th>
+                @endis
             </tr>
             </thead>
             <tbody>
@@ -28,8 +30,10 @@
                 <td>{{ $c->nome }}</td>
                 <td>{{ $c->diretor }}</td>
                 <td>{{ $c->endereco }}</td>
+                @is('Admin')
                 <td><a href="{{route('creches.edit',['id'=>$c->id])}}" class="btn-sm btn-success">Editar</a> </td>
                 <td><a href="{{route('creches.destroy',['id'=>$c->id])}}" class="btn-sm btn-danger">Remover</a> </td>
+                @endis
             </tr>
 
 

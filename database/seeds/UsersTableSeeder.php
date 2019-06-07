@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
        $this->criarAdmin();
+       $this->criarCoord();
        $this->criarProf();
        $this->criarAten();
     }
@@ -21,13 +22,26 @@ class UsersTableSeeder extends Seeder
     public function criarAdmin()
     {
     User::create([
-        "name" =>"EDER SOARES ADMIN",
+        "name" =>"EDER SOARES ADMININISTRADOR",
         "email" =>"edersonoriza@gmail.com",
         "cpf" =>"56279035115",
         "endereco" =>"av. olivo kohl-985",
         "telefone" =>"67 999516700",
         "password" => bcrypt("123456")
     ])->attachRole(Defender::findRole(User::ADMIN));
+
+    }
+
+    public function criarCoord()
+    {
+        User::create([
+            "name" =>"EDER SOARES COORDENADOR",
+            "email" =>"edersonoriza@gmail.com",
+            "cpf" =>"56279035115",
+            "endereco" =>"av. olivo kohl-985",
+            "telefone" =>"67 999516700",
+            "password" => bcrypt("123456")
+        ])->attachRole(Defender::findRole(User::COORD));
 
     }
 

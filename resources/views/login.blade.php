@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <h2 class="text-body">Etrar</h2>
+        <h2 class="text-body">Entrar</h2>
 
         <div class="flex-row">
 

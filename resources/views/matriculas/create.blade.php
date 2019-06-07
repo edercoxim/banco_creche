@@ -34,7 +34,7 @@
             <label for="">id da Sala</label>
             <select name="sala_id" id="inputSala_id" class="form-control">
                 @foreach($salas as $sl)
-                    <option value="{{$sl['id']}}">{{$sl['ano']}}</option>
+                    <option value="{{$sl['id']}}">{{$sl['turma']}}</option>
                 @endforeach
 
             </select>

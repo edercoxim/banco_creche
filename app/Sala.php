@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sala extends Model
 {
-    protected $fillable=['ano', 'turma', 'user_id'];
+    protected $fillable=['ano', 'turma', 'user_id', 'creche_id'];
 
 
     protected $table = 'salas';
@@ -20,6 +20,11 @@ class Sala extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function creche()
+    {
+        return $this->belongsTo(Creche::class);
     }
 
 

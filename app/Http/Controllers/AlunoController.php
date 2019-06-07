@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Input;
 class AlunoController extends Controller
 {
 
-    /**
-     * @return $this
-     */
+
     public function __construct()
     {
- //       $this->middleware('auth');
-        $this->middleware('needsRole:Admin,true' && 'needsRole:Coordenador,true');
+        $this->middleware('needsRole:Admin,true'||'needsRole:Coordenador,true' || 'needsRole:Atendente,true');
 
     }
 
@@ -29,7 +26,6 @@ class AlunoController extends Controller
     {
         $alunos = Aluno::paginate($this->totalpage);
         $matriculas = Matricula::all();
-       // dd($alunos->toArray());
         return view('alunos.index',['alunos'=>$alunos, 'matriculas'=>$matriculas]);
     }
 

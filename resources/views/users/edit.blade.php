@@ -68,6 +68,7 @@
             <label for="">id da Creche</label>
             <select name="creche_id" id="inputcreche_id" class="form-control">
                 @foreach($creches as $cr)
+                    <option></option>
                     <option value="{{$cr['id']}}">{{$cr['nome']}}</option>
                 @endforeach
 
