@@ -101,7 +101,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('/salas') }}">Lista de Salas</a>
-                                @is('Admin'||'Atendente')
+                                @is(['Admin','Atendente'])
                                 <a class="dropdown-item" href="{{ url('/salas/create') }}">Nova Sala</a>
                                 @endis
                             </div>
